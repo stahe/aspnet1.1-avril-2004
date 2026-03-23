@@ -1056,8 +1056,6 @@
 <p><span>Nous décrivons dans ce chapitre, la technologie préconisée dans ASP.NET pour construire l&#x27;interface utilisateur. Nous savons qu&#x27;il y a deux phases bien distinctes dans le traitement d&#x27;une page .aspx par le serveur web :</span></p>
 <ol start="1">
 <li><span>il y a tout d&#x27;abord exécution du contrôleur de la page. Celui-ci est constitué par du code situé soit dans la page .aspx elle-même (solution WebMatrix) soit dans un fichier à part (solution Visual Studio.NET).</span></li>
-</ol>
-<ol start="2">
 <li><span>puis le code de présentation de la page .aspx est exécuté pour être transformé en code HTML envoyé au client.</span></li>
 </ol>
 
@@ -1065,11 +1063,7 @@
 <p><span>ASP.NET offre trois bibliothèques de balises  pour écrire le code de présentation  de la page :</span></p>
 <ol start="1">
 <li><span>les balises HTML classiques. C&#x27;est ce que nous avons utilisé jusqu&#x27;à maintenant.</span></li>
-</ol>
-<ol start="2">
 <li><span>les balises HTML serveur</span></li>
-</ol>
-<ol start="3">
 <li><span>les balises webforms</span></li>
 </ol>
 
@@ -1118,14 +1112,8 @@
 <p><span>Nous allons illustrer la conception des interfaces web à base de composants serveur avec des programmes dont le contexte d&#x27;exécution sera la plupart du temps le suivant :</span></p>
 <ol start="1">
 <li><span>l&#x27;application web sera composée d&#x27;une unique page P contenant un formulaire F,</span></li>
-</ol>
-<ol start="2">
 <li><span>le client fera sa première requête directement à cette page P. Cela consistera à demander l&#x27;url de la page P avec un navigateur. C&#x27;est donc une requête GET qui sera faite sur cette url P. Le serveur délivrera la page P et donc le formulaire F qu&#x27;elle contient,</span></li>
-</ol>
-<ol start="3">
 <li><span>l&#x27;utilisateur remplira celui-ci et le postera, c.a.d. qu&#x27;il fera une action qui forcera le navigateur à poster le formulaire F au serveur. L&#x27;opération POST du navigateur sera toujours à destination de la page P. Le serveur délivrera de nouveau la page P avec le formulaire F, le contenu de ce dernier ayant pu être modifié par l&#x27;action de l&#x27;utilisateur.</span></li>
-</ol>
-<ol start="4">
 <li><span>puis les étapes 2 et 3 reprendront.</span></li>
 </ol>
 
@@ -3723,7 +3711,7 @@
 <p><span>L&#x27;utilisateur renseigne le formulaire :</span></p>
 <p><img src="images/image260.png" class="docx-zoomable" style="width:252px;height:140px;" alt="Image" /></p>
 <p><span>et utilise le bouton &#91;Calculer&#93; pour obtenir la réponse suivante :</span></p>
-<p><img src="images/image261.png" class="docx-zoomable" style="width:251px;height:249px;" alt="Image" /></p>
+<p><img src="images/image261.png" class="docx-zoomable" style="width:252px;height:249px;" alt="Image" /></p>
 <p><span>Dans une application MVC, toute requête doit passer par le contrôleur, ici &#91;main.aspx&#93;. Cela signifie que lorsque le formulaire &#91;formulaire.aspx&#93; a été rempli a été rempli par l&#x27;utilisateur, il doit être posté à &#91;main.aspx&#93; et non pas à &#91;formulaire.aspx&#93;. Ceci n&#x27;est tout simplement pas possible si nous construisons l&#x27;interface utilisateur &#91;formulaire.aspx&#93; avec des composants serveurs ASP. Pour s&#x27;en rendre compte, construisons un formulaire &#91;formtest.aspx&#93; avec un composant &lt;asp:button&gt; :</span></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a><span class="err">&lt;</span>%@ Page Language=&quot;VB&quot; EnableViewState=&quot;false&quot;%&gt;
 <a id="__codelineno-66-2" name="__codelineno-66-2" href="#__codelineno-66-2"></a><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
@@ -3775,7 +3763,7 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;">
 <tr>
 <td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">
-<img src="images/image263.png" class="docx-zoomable" style="width:326px;height:518px;" alt="Image" />
+<img src="images/image263.png" class="docx-zoomable" style="width:327px;height:518px;" alt="Image" />
 </td>
 <td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">
 <img src="images/image264.png" class="docx-zoomable" style="width:218px;height:205px;" alt="Image" />
@@ -4178,14 +4166,8 @@
 <p><span>Le rôle du &#91;VIEWSTATE&#93; pour les composants est ici important. Tous les composants sauf les boutons doivent avoir la propriété &#91;EnableViewState=true&#93;.  Pour en comprendre la raison, il faut se rappeler le fonctionnement de l&#x27;application. Supposons que le champ &#91;txtSaisie&#93; ait la propriété &#91;EnableViewState=false&#93; :</span></p>
 <ol start="1">
 <li><span>le client demande une première fois la page &#91;form10.aspx&#93;. Il obtient la vue formulaire</span></li>
-</ol>
-<ol start="2">
 <li><span>il le remplit et le poste avec le bouton &#91;Envoyer&#93;. Les champs de saisie sont alors postés et le serveur affecte aux composants serveur la valeur postée ou leur état &#91;VIEWSTATE&#93; s&#x27;ils en avaient un. Ainsi le champ &#91;txtSaisie&#93; se voit affectée la valeur saisie par l&#x27;utilisateur. Aussi pour cette étape, son état &#91;VIEWSTATE&#93; ne sert à rien. Comme résultat de l&#x27;opération, la vue &#91;informations&#93; est envoyée, en fait toujours la page &#91;form10.aspx&#93; mais avec un conteneur affiché différent.</span></li>
-</ol>
-<ol start="3">
 <li><span>l&#x27;utilisateur consulte cette nouvelle vue et utilise le lien &#91;Retour au formulaire&#93; pour revenir à celui-ci. Un POST est alors fait vers &#91;form10.aspx&#93;. Il n&#x27;y a alors au plus qu&#x27;une valeur postée : la valeur sélectionnée dans la liste d&#x27;informations par l&#x27;utilisateur, information non exploitée par la suite. Toujours est-il qu&#x27;il n&#x27;y a a pas de champ &#91;txtSaisie&#93; posté.</span></li>
-</ol>
-<ol start="4">
 <li><span>le serveur reçoit le POST et affecte aux composants serveur la valeur postée ou leur état &#91;VIEWSTATE&#93; s&#x27;ils en avaient un. Ici, &#91;txtNom&#93; n&#x27;a pas de valeur postée. Si son attribut &#91;EnableViewState&#93; est à &#91;false&#93;, la chaîne vide lui sera affectée. Comme on souhaite qu&#x27;il ait la valeur saisie par l&#x27;utilisateur, il faut qu&#x27;il ait la propriété &#91;EnableViewState=true&#93;.</span></li>
 </ol>
 
@@ -5013,7 +4995,7 @@
 <p><img src="images/image277.png" class="docx-zoomable" style="width:680px;height:181px;" alt="Image" /></p>
 <h3 id="7143-exemple-3">7.14.3. <a id="toc68751712"></a><span>Exemple 3</span></h3>
 <p><span>Nous avons montré sur ces deux exemples qu&#x27;il était possible de construire des applications web respectant l&#x27;architecture MVC avec des composants serveur. Le dernier exemple montre que la solution avec composants serveur est plus simple que la solution utilisant des balises HTML standard. Nos deux exemples n&#x27;avaient qu&#x27;une page avec plusieurs vues au sein de la même page. On peut avoir une architecture MVC avec plusieurs formulaires ASP serveur tant que le fait que ceux-ci se postent à eux-mêmes les valeurs du formulaire ne pose pas de problème. C&#x27;est très souvent le cas des applications avec menu. Prenons l&#x27;exemple suivant :</span></p>
-<p><img src="images/image278.png" class="docx-zoomable" style="width:670px;height:365px;" alt="Image" /></p>
+<p><img src="images/image278.png" class="docx-zoomable" style="width:670px;height:366px;" alt="Image" /></p>
 <p><span>Nous avons réuni dans une même page des liens vers les applications que nous avons écrites jusqu&#x27;à maintenant. Ce type d&#x27;application se prête bien à une architecture MVC. Simplement il n&#x27;y a plus un mais plusieurs contrôleurs.</span></p>
 <p><img src="images/image279.png" class="docx-zoomable" style="width:680px;height:273px;" alt="Image" /></p>
 <p><span>Le contrôleur &#91;</span><mark style="background-color:#FFE994">main.aspx</mark><span>&#93; joue le rôle de contrôleur principal. C&#x27;est lui qui est appelé par les liens de la page d&#x27;accueil de l&#x27;application. Il va pouvoir faire des opérations communes à toutes les actions possibles puis il fera exécuter l&#x27;action particulière associée au lien utilisé. Il passera alors la main à l&#x27;un des contrôleurs secondaires, celui chargé de faire exécuter l&#x27;action. A partir de ce moment, les échanges se font entre le client et ce contrôleur particulier. On ne passe plus par le contrôleur principal &#91;main.aspx&#93;. On n&#x27;est donc plus dans le cadre MVC avec contrôleur unique qui filtre toutes les requêtes. Chacun des contrôleurs ci-dessus peut présenter plusieurs vues avec le mécanisme des conteneurs au sein d&#x27;une unique page que nous avons présenté.</span></p>

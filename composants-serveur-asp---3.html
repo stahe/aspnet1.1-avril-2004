@@ -2109,11 +2109,11 @@
 <p><span>Nous reprenons l&#x27;exemple précédent afin de paginer le composant &#91;DataList&#93; représentant la liste des abonnements de l&#x27;utilisateur. Contrairement au composant &#91;DataGrid&#93;, le composant &#91;DataList&#93; n&#x27;offre aucune facilité pour la pagination. Nous allons voir que la mise en place de celle-ci est complexe, ce qui nous fera apprécier à sa juste valeur la pagination automatique du &#91;DataGrid&#93;.</span></p>
 <h3 id="941-fonctionnement">9.4.1. <a id="toc73957271"></a><span>Fonctionnement</span></h3>
 <p><span>La seule différence est la pagination du &#91;DataList&#93;. Les pages auront deux abonnements. Si l&#x27;utilisateur a cinq abonnements, on aura trois pages. La première sera la suivante :</span></p>
-<p><img src="images/image359.png" class="docx-zoomable" style="width:393px;height:255px;" alt="Image" /></p>
+<p><img src="images/image359.png" class="docx-zoomable" style="width:393px;height:256px;" alt="Image" /></p>
 <p><span>La deuxième page est obtenue via le lien &#91;Suivant&#93; :</span></p>
 <p><img src="images/image360.png" class="docx-zoomable" style="width:399px;height:250px;" alt="Image" /></p>
 <p><span>La troisième page :</span></p>
-<p><img src="images/image361.png" class="docx-zoomable" style="width:400px;height:251px;" alt="Image" /></p>
+<p><img src="images/image361.png" class="docx-zoomable" style="width:400px;height:252px;" alt="Image" /></p>
 <p><span>On remarquera que les liens &#91;Précédent&#93; et &#91;Suivant&#93; ne sont visibles que s&#x27;il y a respectivement une page qui précède et une page qui suit la page courante. </span></p>
 <h3 id="942-code-de-presentation">9.4.2. <a id="toc73957272"></a><span>Code de présentation</span></h3>
 <p><span>Les liens &#91;Précédent&#93; et &#91;Suivant&#93; sont obtenus en ajoutant une balise &lt;FooterTemplate&gt; au &#91;DataList&#93; :</span></p>
@@ -4264,11 +4264,7 @@
 <p><span>Ci-dessus, l&#x27;élément &#91;Produit8, 80&#93; est en mode &#91;édition&#93;. On voit ci-dessus que l&#x27;utilisateur peut valider sa mise à jour par le lien &#91;Mettre à jour&#93;, l&#x27;annuler par le lien &#91;Annuler&#93;. Il peut aussi utiliser d&#x27;autres liens n&#x27;ayant rien à voir avec l&#x27;élément en cours d&#x27;édition. En mettant &#91;DataGrid1.EditItemIndex=-1&#93; à chaque chargement de la page, on s&#x27;assure d&#x27;annuler systématiquement le mode édition de &#91;DataGrid1&#93;. On ne lui affectera une valeur différente que si un lien &#91;Modifier&#93; a été cliqué. On le fera dans la procédure traitant cet événement. On aura les situations suivantes :</span></p>
 <ol start="1">
 <li><span>le lien &#91;Modifier&#93; de l&#x27;élément n° 8 de &#91;DataGrid1&#93; a été cliqué. &#91;Page&#95;Load&#93; met tout d&#x27;abord -1 dans &#91;DataGrid1.EditItemIndex&#93;. Puis la procédure traitant l&#x27;événement &#91;Modifier&#93; mettra 8 dans &#91;DataGrid1.EditItemIndex&#93;. Au final, lorsque la page sera renvoyée au client, l&#x27;élément n° 8 sera bien en mode &#91;édition&#93; et celui-ci apparaîtra comme montré ci-dessus.</span></li>
-</ol>
-<ol start="2">
 <li><span>l&#x27;utilisateur modifie le produit qui est en mode &#91;édition&#93; et valide sa modification par le lien &#91;Mettre à jour&#93;. &#91;Page&#95;Load&#93; met -1 dans &#91;DataGrid1.EditItemIndex&#93;. Puis la procédure traitant l&#x27;événement &#91;Mettre à jour&#93; s&#x27;exécutera et l&#x27;élément n° 8 de &#91;dtProduits&#93; sera mis à jour. Lorsque la page sera renvoyée au client, aucun élément de &#91;DataGrid1&#93; ne sera en mode édition (DataGrid.EditItemIndex=-1).</span></li>
-</ol>
-<ol start="3">
 <li><span>Si un utilisateur est entré en mise à jour d&#x27;un produit, il serait cohérent qu&#x27;il abandonne cette mise à jour par &#91;Annuler&#93;. Cependant rien ne l&#x27;empêche à cliquer sur un autre lien. Il nous faut donc prévoir ce cas. Dans ce cas comme dans les précédents, &#91;Page&#95;Load&#93; commence par mettre -1 dans &#91;DataGrid1.EditItemIndex&#93;, puis la procédure traitant l&#x27;événement qui s&#x27;est produit s&#x27;exécutera. Elle ne modifiera pas la propriété &#91;DataGrid1.EditItemIndex&#93; qui restera donc avec la valeur -1. Lorsque la page sera renvoyée au client, aucun élément de &#91;DataGrid1&#93; ne sera en mode édition.</span></li>
 </ol>
 
@@ -4681,11 +4677,7 @@
 <p><span>La mécanique est la suivante :</span></p>
 <ol start="1">
 <li><span>un ou plusieurs clients arrivent à l&#x27;instruction &#91;Application.Lock&#93; de la section critique 1. C&#x27;est un distributeur de jeton d&#x27;entrée unique. Un unique client btient ce jeton. Appelons-le C1.</span></li>
-</ol>
-<ol start="2">
 <li><span>tant que le client C1 n&#x27;a pas rendu le jeton par &#91;Application.Unlock&#93;, aucun autre client n&#x27;est autorisé à entrer dans une section critique contrôlée par &#91;Application.Lock&#93;. Dans l&#x27;exemple ci-dessus, aucun client ne peut donc entrer dans les sections critiques 1 et 2.</span></li>
-</ol>
-<ol start="3">
 <li><span>le client C1 exécute &#91;Application.Unlock&#93; et rend donc le jeton d&#x27;entrée. Celui-ci peut alors être donné à un autre client. Les étapes 1 à 3 sont rejouées.</span></li>
 </ol>
 
@@ -4897,9 +4889,9 @@
 <p><span>Avec le client &#91;Mozilla&#93; nous supprimons le produit &#91;produit2&#93;. Nous obtenons la nouvelle page suivante :</span></p>
 <p><img src="images/image388.png" class="docx-zoomable" style="width:671px;height:128px;" alt="Image" /></p>
 <p><span>L&#x27;opération de suppression s&#x27;est bien déroulée. Le produit supprimé apparaît bien le &#91;DataGrid&#93; des produits supprimés et n&#x27;appraît plus dans la liste des produits des composants &#91;DataGrid1&#93; et &#91;DataGrid2&#93; qui exposent les produits actuellement présents dans la table. Faisons de même avec &#91;Interbet Explorer&#93;. On supprime l&#x27;élément &#91;produit2&#93; :</span></p>
-<p><img src="images/image389.png" class="docx-zoomable" style="width:680px;height:260px;" alt="Image" /></p>
+<p><img src="images/image389.png" class="docx-zoomable" style="width:680px;height:261px;" alt="Image" /></p>
 <p><span>La réponse obtenue est la suivante :</span></p>
-<p><img src="images/image390.png" class="docx-zoomable" style="width:680px;height:408px;" alt="Image" /></p>
+<p><img src="images/image390.png" class="docx-zoomable" style="width:680px;height:409px;" alt="Image" /></p>
 <p><span>Un message d&#x27;erreur signale à l&#x27;utilisateur que le produit de clé &#91;2&#93; n&#x27;existe pas. La réponse renvoie au client une nouvelle vue relétant l&#x27;état actuel de la table. On voit qu&#x27;effectivement le produit de clé &#91;2&#93; est dans la liste des produits supprimés. La vue &#91;produits&#93; reflète donc les mises à jour de tous les clients et non d&#x27;un seul.</span></p>
 <h3 id="9614-ajout-dun-produit">9.6.14. <a id="toc73957294"></a><span>Ajout d&#x27;un produit</span></h3>
 <p><span>Pour ajouter un produit, l&#x27;utilisateur utilise le lien &#91;Ajout&#93; des options. Celui-ci se contente d&#x27;afficher la vue &#91;Ajout&#93; :</span></p>
@@ -5211,8 +5203,6 @@
 <p><span>L&#x27;application précédente était davantage un cas d&#x27;école destiné à montrer la gestion d&#x27;un objet &#91;DataTable&#93; en cache qu&#x27;un cas courant. Il faut bien en effet, à un moment ou à un autre, mettre à jour la source réelle des données. On peut opter pour deux stratégies différentes :</span></p>
 <ol start="1">
 <li><span>on utilise le cache &#91;dtProduits&#93; en mémoire pour mettre à jour la source des données. On peut prévoir une page située dans l&#x27;arborescence web de l&#x27;application précédente afin d&#x27;avoir accès au cache &#91;dtProduits&#93; de celle-ci. Cette page offrirait à un administrateur la possibilité de répercuter sur la source physique des données les modification en cache dans &#91;dtProduits&#93;. On pourrait pour ce faire, ajouter une nouvelle méthode à la classe d&#x27;accès &#91;produits&#93; qui admettrait pour paramètre le cache &#91;dtProduits&#93; et qui avec ce cache mettrait à jour la source physique des données.</span></li>
-</ol>
-<ol start="2">
 <li><span>on met à jour la source de données physique en même temps que le cache.</span></li>
 </ol>
 
@@ -5381,11 +5371,11 @@
 <p><span>Un client web est lancé :</span></p>
 <p><img src="images/image406.png" class="docx-zoomable" style="width:341px;height:271px;" alt="Image" /></p>
 <p><span>Nous ajoutons un produit :</span></p>
-<p><img src="images/image407.png" class="docx-zoomable" style="width:680px;height:271px;" alt="Image" /></p>
+<p><img src="images/image407.png" class="docx-zoomable" style="width:680px;height:272px;" alt="Image" /></p>
 <p><span>Nous supprimons &#91;produit1&#93; :</span></p>
-<p><img src="images/image408.png" class="docx-zoomable" style="width:679px;height:239px;" alt="Image" /></p>
+<p><img src="images/image408.png" class="docx-zoomable" style="width:680px;height:239px;" alt="Image" /></p>
 <p><span>Nous modifions le prix de &#91;produit2&#93; :</span></p>
-<p><img src="images/image409.png" class="docx-zoomable" style="width:679px;height:232px;" alt="Image" /></p>
+<p><img src="images/image409.png" class="docx-zoomable" style="width:680px;height:232px;" alt="Image" /></p>
 <p><span>Après ces modifications, nous regardons le contenu de la table &#91;liste&#93; dans la base ACCESS :</span></p>
 <p><img src="images/image410.png" class="docx-zoomable" style="width:181px;height:186px;" alt="Image" /></p>
 <p><span>Les trois modification ont été correctement prises en compte dans la table physique. Examinons maintenant un cas de conflit. Nous supprimons, directement sous ACCESS, la ligne de &#91;produit2&#93; :</span></p>
@@ -5393,7 +5383,7 @@
 <p><span>Nous revenons à notre client web. Celui-ci ne voit pas la suppression qui a été faite et veut supprimer à son tour &#91;produit2&#93; :</span></p>
 <p><img src="images/image412.png" class="docx-zoomable" style="width:230px;height:115px;" alt="Image" /></p>
 <p><span>Il obtient la réponse suivante :</span></p>
-<p><img src="images/image413.png" class="docx-zoomable" style="width:679px;height:216px;" alt="Image" /></p>
+<p><img src="images/image413.png" class="docx-zoomable" style="width:680px;height:216px;" alt="Image" /></p>
 <p><span>La ligne &#91;produit2&#93; a bien été enlevée du cache comme l&#x27;indique la liste des produits supprimés. La suppression de &#91;produit2&#93; dans la source physique a elle échoué comme l&#x27;indique le message d&#x27;erreur.</span></p>
 <h3 id="974-solution-2">9.7.4. <a id="toc73957300"></a><span>S</span><span>olution 2</span></h3>
 <p><span>Dans la solution précédente, les clients web mettent simultanément à jour la source de données physique mais il ne voit pas les modifications apportées par les autres clients. Ils ne voient que les leurs. Nous voudrions maintenant qu&#x27;un client puisse voir la source de données physique telle qu&#x27;elle est actuellement et non pas telle qu&#x27;elle était au lancement de l&#x27;application. Pour cela, on va offrir au client une nouvelle option :</span></p>
@@ -5549,9 +5539,9 @@
 <p><span>Le client &#91;Internet Explorer&#93; veut supprimer &#91;produit1&#93;. </span></p>
 <p><img src="images/image418.png" class="docx-zoomable" style="width:247px;height:234px;" alt="Image" /></p>
 <p><span>Il obtient la réponse suivante :</span></p>
-<p><img src="images/image419.png" class="docx-zoomable" style="width:680px;height:327px;" alt="Image" /></p>
+<p><img src="images/image419.png" class="docx-zoomable" style="width:680px;height:328px;" alt="Image" /></p>
 <p><span>On lui a signalé que &#91;produit1&#93; n&#x27;existait plus. L&#x27;utilisateur décide alors de rafraîchir son cache avec le lien &#91;Rafraîchir&#93; ci-dessus. Il obtient la réponse suivante :</span></p>
-<p><img src="images/image420.png" class="docx-zoomable" style="width:376px;height:397px;" alt="Image" /></p>
+<p><img src="images/image420.png" class="docx-zoomable" style="width:377px;height:398px;" alt="Image" /></p>
 <p><span>Il a maintenant la même source de données que le client &#91;Mozilla&#93;.</span></p>
 <h2 id="98-conclusion">9.8. <a id="toc73957301"></a><span>Conclusion</span></h2>
 <p><span>Dans ce chapitre, nous avons passé un long moment sur les conteneurs de données et leur liaisons avec des sources de données. Nous avons terminé en montrant comment on pouvait mettre à jour une source de données à l&#x27;aide d&#x27;un composant &#91;DataGrid&#93;. Nous avons pris comme source de données une table de base de données. Même si le composant &#91;DataGrid&#93; facilite un peu les choses pour la repré</span><span>s</span><span>entation des données, la véritable difficulté ne réside pas dans la partie présentation mais bien dans la gestion des mises à jour de la source de données faites par les différents clients. Des conflits d&#x27;accès peuvent surgir et doivent être gérés. Ici, nous les avons gérés dans le contrôleur par l&#x27;utilisation de &#91;Application.Lock&#93;. Il serait probablement plus avisé de synchroniser les accès à la source de données dans la classe d&#x27;accès à celles-ci afin que le contrôleur n&#x27;ait pas à se préoccuper de tels détails qui ne sont pas de son ressort.</span></p>

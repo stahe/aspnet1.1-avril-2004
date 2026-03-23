@@ -977,11 +977,7 @@
 <p><span>Le code du fichier &#91;global.asax&#93; est toujours exécuté avant que la page demandée par la requête courante ne soit chargée. Il doit être situé dans la racine &lt;application-path&gt; de l&#x27;application. S&#x27;il existe, le fichier &#91;global.asax&#93; est utilisé à divers moments par le serveur web :</span></p>
 <ol start="1">
 <li><span>lorsque l&#x27;application web démarre ou se termine</span></li>
-</ol>
-<ol start="2">
 <li><span>lorsqu&#x27;une session utilisateur démarre ou se termine</span></li>
-</ol>
-<ol start="3">
 <li><span>lorsqu&#x27;une requête utilisateur démarre</span></li>
 </ol>
 
@@ -1148,8 +1144,6 @@
 <p><img src="images/image68.png" class="docx-zoomable" style="width:321px;height:147px;" alt="Image" /></p>
 <ol start="2">
 <li><span>le serveur Cassini est lancé avec les paramètres (&lt;application-path&gt;,/aspnet/globalasax1)</span></li>
-</ol>
-<ol start="3">
 <li><span>un premier client demande l&#x27;url &#91;http://localhost/aspnet/globalasax1/main.aspx&#93; et obtient le résultat suivant :</span></li>
 </ol>
 
@@ -1258,11 +1252,7 @@
 <p><span>Il affiche trois informations calculées par son contrôleur :</span></p>
 <ol start="1">
 <li><span>l&#x27;identité du client via son jeton de session : &#91;jeton&#93;</span></li>
-</ol>
-<ol start="2">
 <li><span>le nombre total de requêtes faites à l&#x27;application : &#91;nbRequêtesApplication</span><span>&#93;</span></li>
-</ol>
-<ol start="3">
 <li><span>le nombre total de requêtes faites par le client identifié en 1 : &#91;nbRequêtesClient</span><span>&#93;</span></li>
 </ol>
 
@@ -1304,11 +1294,7 @@
 <p><span>Cette instruction, quoique simple, nécessite plusieurs instructions du processeur pour être exécutée. Supposons qu&#x27;il en faille trois : </span></p>
 <ol start="1">
 <li><span>lecture du compteur</span></li>
-</ol>
-<ol start="2">
 <li><span>incrémentation du compteur</span></li>
-</ol>
-<ol start="3">
 <li><span>réécriture du compteur</span></li>
 </ol>
 
@@ -1352,14 +1338,8 @@
 <p><span>L&#x27;incrémentation des compteurs a été divisée en quatre phases :</span></p>
 <ol start="1">
 <li><span>lecture du compteur</span></li>
-</ol>
-<ol start="2">
 <li><span>mise en sommeil du thread d&#x27;exécution</span></li>
-</ol>
-<ol start="3">
 <li><span>incrémentation du compteur</span></li>
-</ol>
-<ol start="4">
 <li><span>réécriture du compteur</span></li>
 </ol>
 
@@ -1386,11 +1366,7 @@
 <p><span>Le problème mis en évidence dans l&#x27;application précédente est un problème classique (mais pas simple à résoudre) d&#x27;accès exclusif à une ressource. Dans notre problème particulier, il faut faire en sorte que que deux clients A et B ne puissent être en même temps dans la séquence de code :</span></p>
 <ol start="1">
 <li><span>lecture du compteur</span></li>
-</ol>
-<ol start="2">
 <li><span>incrémentation du compteur</span></li>
-</ol>
-<ol start="3">
 <li><span>réécriture du compteur</span></li>
 </ol>
 
@@ -1797,14 +1773,8 @@
 <p><span>Le fichier de configuration ci-dessus indique que l&#x27;application va travailler sans cookies (cookieless=&quot;true&quot;) et que la durée d&#x27;inactivité maximale d&#x27;un jeton de session est de 10 mn (timeout=&quot;10&quot;). Après ce délai, la session associée au jeton est détruite. Le processus d&#x27;échange du jeton de session entre le serveur et le client va être le suivant :</span></p>
 <ol start="1">
 <li><span>le client demande l&#x27;url &#91;</span><mark style="background-color:#FFE994">http://machine:port/V/chemin</mark><span>&#93; où V est un dossier virtuel du serveur web</span></li>
-</ol>
-<ol start="2">
 <li><span>le serveur génère un jeton J et répond au client de se rediriger vers l&#x27;url &#91;</span><mark style="background-color:#FFE994">http://machine:port/V/(J)/chemin</mark><span>&#93;. Il a donc placé le jeton dans l&#x27;url à interroger, immédiatement derrière le dossier virtuel V</span></li>
-</ol>
-<ol start="3">
 <li><span>le client obéit à cette redirection et demande la nouvelle URL &#91;</span><mark style="background-color:#FFE994">http://machine:port/V/(J)/chemin</mark><span>&#93;.</span></li>
-</ol>
-<ol start="4">
 <li><span>le serveur répond à cette demande et envoie une page de réponse.</span></li>
 </ol>
 
@@ -1879,8 +1849,6 @@
 <p><span>La requête d&#x27;un client pour une application web est traitée de fa façon suivante :</span></p>
 <ol start="1">
 <li><span>le client ouvre une connexion tcp-ip vers un port P du service web de la machine M abritant l&#x27;application web</span></li>
-</ol>
-<ol start="2">
 <li><span>il envoie sur cette connexion une suite lignes de texte selon le protocole HTTP. Cet ensemble de lignes forme ce qu&#x27;on appelle la requête du client. Elle a la forme suivante :</span></li>
 </ol>
 
@@ -1905,8 +1873,6 @@
 </ul>
 <ol start="4">
 <li><span>sur le serveur, l&#x27;ensemble de la chaîne de traitement de la requête du client a accès à celle-ci via un objet global appelé </span><b>Request</b><span>. Le serveur web a placé dans cet objet la totalité de la requête du client sous une forme que nous allons découvrir. L&#x27;application sollicitée va traiter cet objet et construire une réponse au client. Celle-ci est disponible dans un objet global appelé </span><b>Response</b><span>. Le rôle de l&#x27;application web est de construire un objet &#91;</span><b>Response</b><span>&#93; à partir de l&#x27;objet &#91;</span><b>Request</b><span>&#93; reçu. La chaîne de traitement dispose également des objets globaux &#91;</span><b>Application</b><span>&#93; et &#91;</span><b>Session</b><span>&#93; dont nous </span><span>avons déjà parlé et qui vont lui permettre de partager des données entre clients différents (Application) ou entre requêtes successives d&#x27;un même client (Session).</span></li>
-</ol>
-<ol start="5">
 <li><span>l&#x27;application va envoyer sa réponse au serveur au moyen de l&#x27;objet &#91;Response&#93;. Celle-ci, une fois sur le réseau aura la forme HTTP suivante :</span></li>
 </ol>
 
@@ -1914,8 +1880,6 @@
 <p><span>Une fois cette réponse envoyée, le serveur va fermer la connexion réseau en réception (sauf si le client lui a dit de ne pas le faire).</span></p>
 <ol start="6">
 <li><span>le client va recevoir la réponse et va fermer à son tour la connexion (en émission). Ce qui sera fait de cette réponse dépend du type du client. Si celui-ci est un navigateur, et que le document reçu est un document HTML, celui-ci sera affiché. Si le client est un programme, la réponse va être analysée et exploitée.</span></li>
-</ol>
-<ol start="7">
 <li><span>Le fait qu&#x27;après le cycle requête-réponse, la connexion qui liait le client au serveur soit fermée fait du protocole HTTP un protocole sans état. Lors de la requête suivante, le client établira une nouvelle connexion réseau au même serveur. Du fait que ce n&#x27;est plus la même connexion réseau, le serveur n&#x27;a aucune possibilité (au niveau tcp-ip et HTTP) de lier cette nouvelle connexion à une précédente. C&#x27;est le système du jeton de session qui permettra ce lien.</span></li>
 </ol>
 
@@ -2308,11 +2272,7 @@
 <p><span>De ce que nous avons vu jusqu&#x27;ici, on peut penser que le fichier &#91;global.asax&#93; pourrait jouer le rôle du contrôleur. En effet, on sait que toutes les requêtes passent par lui. Il est donc bien placé pour tout contrôler. L&#x27;application qui suit l&#x27;utilise à cette fin. Son chemin virtuel sera &#91;http://localhost/mvc1/main.aspx&#93;. Pour indiquer ce qu&#x27;il veut, le client passera derrière l&#x27;url un paramètre action=valeur. Selon la valeur du paramètre &#91;action&#93;, le contrôleur &#91;global.asax&#93; dirigera la requête vers une page particulière :</span></p>
 <ol start="1">
 <li><span>&#91;main.aspx&#93; si le</span><span> </span><span>paramètre action n&#x27;est pas défini ou si action=main</span></li>
-</ol>
-<ol start="2">
 <li><span>&#91;action1.aspx&#93; si action=action1</span></li>
-</ol>
-<ol start="3">
 <li><span>&#91;inconnu.aspx&#93; si action ne tombe pas dans les cas 1 et 2</span></li>
 </ol>
 

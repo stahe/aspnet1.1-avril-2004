@@ -1647,8 +1647,6 @@
 </code></pre></div>
 
 </li>
-</ol>
-<ol start="2">
 <li><span>Sauvegarder ce programme sous le nom </span><i>heure.java</i><span>. Ouvrir une fenêtre DOS. Se mettre dans le répertoire du fichier </span><i>heure.java</i><span> et le compiler :</span>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>dos&gt;c:\jdk1.3\bin\javac heure.java
 <a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>Note: heure.java uses or overrides a deprecated API.
@@ -1776,14 +1774,8 @@
 </code></pre></div>
 
 </li>
-</ol>
-<ol start="2">
 <li><span>Mettre ce script dans </span><i>&lt;cgi-bin&gt;\heure.pl</i><span> où </span><i>&lt;cgi-bin&gt;</i><span> est le dossier pouvant recevoir des scripts CGI (cf </span><i>httpd.conf</i><span>). La première ligne </span><i>#!c:\perl\bin\perl.exe</i><span> désigne le chemin de l&#x27;exécutable </span><i>perl.exe</i><span>. Le modifier si besoin est.</span></li>
-</ol>
-<ol start="3">
 <li><span>Lancer Apache si ce n&#x27;est fait</span></li>
-</ol>
-<ol start="4">
 <li><span>Demander avec un navigateur l&#x27;URL </span><i>http://localhost/cgi-bin/heure.pl</i><span>. On obtient la page suivante :</span></li>
 </ol>
 
@@ -1805,11 +1797,7 @@
 </code></pre></div>
 
 </li>
-</ol>
-<ol start="2">
 <li><span>Relancer la machine pour que la modification de la base de registres soit prise en compte.</span></li>
-</ol>
-<ol start="3">
 <li><span>Créer un dossier </span><b>php</b><span> dans </span><i>d:\inetpub\wwwroot</i><span> qui est la racine du serveur PWS. Ceci fait, activez PWS et prendre l’onglet « Avancé ». Sélectionner le bouton « Ajouter » pour créer un dossier virtuel :</span>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>Répertoire/Parcourir : d:\inetpub\wwwroot\php
 <a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>Alias : php
@@ -1817,15 +1805,11 @@
 </code></pre></div>
 
 </li>
-</ol>
-<ol start="4">
 <li><span>Valider le tout et relancer PWS. Mettre dans </span><i>d:\inetpub\wwwroot\php</i><span> le fichier </span><b>intro.php</b><span> ayant la seule ligne suivante :</span>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>&lt;? phpinfo() ?&gt;
 </code></pre></div>
 
 </li>
-</ol>
-<ol start="5">
 <li><span>Demander au serveur PWS l’URL </span><i>http://localhost/php/intro.php</i><span>. On doit voir la  liste d’informations php déjà présentées avec Apache.</span></li>
 </ol>
 

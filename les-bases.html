@@ -1805,11 +1805,7 @@
 <p><span>Lorsque le client fait sa demande au serveur web, il envoie </span></p>
 <ol start="1">
 <li><span>des lignes de texte au format HTTP pour indiquer ce qu&#x27;il veut</span></li>
-</ol>
-<ol start="2">
 <li><span>une ligne vide</span></li>
-</ol>
-<ol start="3">
 <li><span>optionnellement un document</span></li>
 </ol>
 
@@ -1817,25 +1813,15 @@
 <p><span>Lorsque le serveur fait sa réponse au client, il envoie </span></p>
 <ol start="1">
 <li><span>des lignes de texte au format HTTP pour indiquer ce qu&#x27;il envoie</span></li>
-</ol>
-<ol start="2">
 <li><span>une ligne vide</span></li>
-</ol>
-<ol start="3">
 <li><span>optionnellement un document</span></li>
 </ol>
 
 <p><span>Les échanges ont donc la même forme dans les deux sens. Dans les deux cas, il peut y avoir envoi d&#x27;un document même s&#x27;il est rare qu&#x27;un client envoie un document au serveur. Mais le protocole HTTP le prévoit. C&#x27;est ce qui permet par exemple aux abonnés d&#x27;un fournisseur d&#x27;accès de télécharger des documents divers sur leur site personnel hébergé chez ce fournisseur d&#x27;accès. Les documents échangés peuvent être quelconques. Prenons un navigateur demandant une page web contenant des images :</span></p>
 <ol start="1">
 <li><span>le navigateur se connecte au serveur web et demande la page qu&#x27;il souhaite. Les ressources demandées sont désignées de façon unique par des URL (Uniform Resource Locator). Le navigateur n&#x27;envoie que des entêtes HTTP et aucun document.</span></li>
-</ol>
-<ol start="2">
 <li><span>le serveur lui répond. Il envoie tout d&#x27;abord des entêtes HTTP indiquant quel type de réponse il envoie. Ce peut être une erreur si la page demandée n&#x27;existe pas. Si la page existe, le serveur dira dans les entêtes HTTP de sa réponse qu&#x27;après ceux-ci il va envoyer un document </span><b>HTML</b><span> (HyperText Markup Language). Ce document est une suite de lignes de texte au format HTML. Un texte HTML contient des balises (marqueurs) donnant au navigateur des indications sur la façon d&#x27;afficher le texte.</span></li>
-</ol>
-<ol start="3">
 <li><span>le client sait d&#x27;après les entêtes HTTP du serveur qu&#x27;il va recevoir un document HTML. Il va analyser celui-ci et s&#x27;apercevoir peut-être qu&#x27;il contient des références d&#x27;images. Ces dernières ne sont pas dans le document HTML. Il fait donc une nouvelle demande au même serveur web pour demander la première image dont il a besoin. Cette demande est identique à celle faite en 1, si ce n&#x27;est que la resource demandée est différente. Le serveur va traiter cette demande en envoyant à son client l&#x27;image demandée. Cette fois-ci, dans sa réponse, les entêtes HTTP préciseront que le document envoyé est une image et non un document HTML.</span></li>
-</ol>
-<ol start="4">
 <li><span>le client récupère l&#x27;image envoyée. Les étapes 3 et 4 vont être répétées jusqu&#x27;à ce que le client (un navigateur en général) ait tous les documents lui permettant d&#x27;afficher l&#x27;intégralité de la page.</span></li>
 </ol>
 
@@ -1892,14 +1878,8 @@
 <p><span>Que fait un navigateur lorsqu&#x27;un utilisateur demande le chargement d&#x27;une URL ?</span></p>
 <ol start="1">
 <li><span>il ouvre une communication TCP-IP avec la machine et le port indiqués dans la partie </span><b>machine&#91;:port&#93; </b><span>de l&#x27;URL. Ouvrir une communication TCP-IP, c&#x27;est créer un &quot;tuyau&quot; de communication entre deux machines. Une fois ce tuyau créé, toutes les informations échangées entre les deux machines vont passer dedans. La création de ce tuyau TCP-IP n&#x27;implique pas encore le protocole HTTP du Web.</span></li>
-</ol>
-<ol start="2">
 <li><span>le tuyau TCP-IP créé, le client va faire sa demande au serveur Web et il va la faire en lui envoyant des lignes de texte (des commandes) au format HTTP. Il va envoyer au serveur la partie </span><b>chemin/infos</b><span> de l&#x27;URL</span></li>
-</ol>
-<ol start="3">
 <li><span>le serveur lui répondra de la même façon et dans le même tuyau</span></li>
-</ol>
-<ol start="4">
 <li><span>l&#x27;un des deux partenaires prendra la décision de fermer le tuyau. Cela dépend du protocole HTTP utilisé. Avec le protocole HTTP 1.0, le serveur ferme la connexion après chacune de ses réponses. Cela oblige un client qui doit faire plusieurs demandes pour obtenir les différents documents constituant une page web à ouvrir une nouvelle connexion à chaque demande, ce qui a un coût. Avec le protocole HTTP/1.1, le client peut dire au serveur de garder la connexion ouverte jusqu&#x27;à ce qu&#x27;il lui dise de la fermer. Il peut donc récupérer tous les documents d&#x27;une page web avec une seule connexion et fermer lui-même la connexion une fois le dernier document obtenu. Le serveur détectera cette fermeture et fermera lui aussi la connexion.</span></li>
 </ol>
 
@@ -2329,8 +2309,6 @@
 <p><span>L&#x27;ensemble du document est encadré par les balises </span><b>&lt;html&gt;...&lt;/html&gt;</b><span>. Il est formé de deux parties :</span></p>
 <ol start="1">
 <li><b>&lt;head&gt;...&lt;/head&gt;</b><span> : c&#x27;est la partie non affichable du document. Elle donne des renseignements au navigateur qui va afficher le document. On y trouve souvent la balise </span><b>&lt;title&gt;...&lt;/title&gt;</b><span> qui fixe le texte qui sera affiché dans la barre de titre du navigateur. On peut y trouver d&#x27;autres balises notamment des balises définissant les mots clés du document, mot clés utilisés ensuite par les moteurs de recherche. On peut trouver également dans cette partie des scripts, écrits le plus souvent en javascript ou vbscript et qui seront exécutés par le navigateur.</span></li>
-</ol>
-<ol start="2">
 <li><b>&lt;body attributs&gt;...&lt;/body&gt;</b><span> : c&#x27;est la partie qui sera affichée par le navigateur. Les balises HTML contenues dans cette partie indiquent au navigateur la forme visuelle &quot;souhaitée&quot; pour le document. Chaque navigateur va interpréter ces balises à sa façon. Deux navigateurs peuvent alors visualiser différemment un même document web. C&#x27;est généralement l&#x27;un des casse-têtes des concepteurs web.</span></li>
 </ol>
 
@@ -2448,11 +2426,7 @@
 <p><span>On voit dans ce simple exemple que pour construire l&#x27;intéralité du document, le navigateur doit faire trois requêtes au serveur :</span></p>
 <ol start="1">
 <li><i>http://localhost:81/html/balises.htm</i><span> pour avoir le source HTML du document</span></li>
-</ol>
-<ol start="2">
 <li><i>http://localhost:81/images/univ01.gif</i><span> pour avoir l&#x27;image </span><i>univ01.gif</i></li>
-</ol>
-<ol start="3">
 <li><i>http://localhost:81/images/standard.jpg</i><span> pour obtenir l&#x27;image de fond </span><i>standard.jpg</i></li>
 </ol>
 
@@ -3376,7 +3350,7 @@
 <img src="images/image45.png" class="docx-zoomable" style="width:321px;height:48px;" alt="Image" />
 </td>
 <td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">
-<p style='margin:0;'><b>areaSaisie=les+bases+de+la%0D%0A</b></p><p style='margin:0;'><mark style="background-color:#FFE994"><b>programmation+web</b></mark></p><p style='margin:0;'><span>- texte tapé par l&#x27;utilisateur dans le champ de saisie. %OD%OA est la marque de fin de ligne. Les espaces ont été remplacés par le signe +</span></p>
+<p style='margin:0;'><div style="background-color:#FFE994; padding:0.35em 0.5em;"><b>areaSaisie=les+bases+de+la%0D%0A</b></div></p><p style='margin:0;'><mark style="background-color:#FFE994"><b>programmation+web</b></mark></p><p style='margin:0;'><span>- texte tapé par l&#x27;utilisateur dans le champ de saisie. %OD%OA est la marque de fin de ligne. Les espaces ont été remplacés par le signe +</span></p>
 </td>
 </tr>
 <tr>
