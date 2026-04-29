@@ -885,13 +885,13 @@
 
 
 
-<p><a id="toc69180331"></a>
-<a id="toc69180234"></a></p>
+<p><a id="toc69180234"></a>
+<a id="toc69180331"></a></p>
 <h1 id="4-les-fondamentaux-du-developpement-aspnet">4. Les fondamentaux du développement ASP.NET</h1>
 <p><a id="toc69180332"></a></p>
 <h2 id="41-la-notion-dapplication-web-aspnet">4.1. La notion d&#x27;application web ASP.NET</h2>
-<p><a id="toc69180235"></a>
-<a id="toc69180333"></a></p>
+<p><a id="toc69180333"></a>
+<a id="toc69180235"></a></p>
 <h3 id="411-introduction">4.1.1. Introduction</h3>
 <p>Une application web est une application regroupant divers documents (HTML, code .NET, images, sons, ...). Ces documents doivent être sous une même racine qu&#x27;on appelle la racine de l&#x27;application web. A cette racine est associé un chemin virtuel du serveur web. Nous avons rencontré la notion de dossier virtuel pour le serveur web Cassini. Cette notion existe également pour le serveur web IIS. Une différence importante entre les deux serveurs est qu&#x27;à un moment donné, IIS peut avoir un nombre quelconque de dossiers virtuels alors que le serveur web Cassini n&#x27;en a qu&#x27;une, celle qui a été spécifiée à son lancement. Cela signifie que le serveur IIS peut servir plusieurs applications web simultanément alors que le serveur Cassini n&#x27;en sert qu&#x27;une à la fois. Dans les exemples précédents, le serveur Cassini était toujours lancé avec les paramètres (&lt;webroot&gt;,/aspnet) qui associaient le dossier virtuel /aspnet au dossier physique &lt;webroot&gt;.  Le serveur web servait donc toujours la même application web. Cela ne nous a pas empêchés d&#x27;écrire et de tester des pages différentes et indépendantes à l&#x27;intérieur de cette unique application web. Chaque application web a des ressources qui lui sont propres et qui se trouvent sous sa racine physique &lt;webroot&gt; :</p>
 <ul>
@@ -926,8 +926,8 @@
 </ul>
 
 <p>Afin de respecter ce concept d&#x27;application web, les exemples à venir seront tous placés dans un dossier &lt;application-path&gt; propre à l&#x27;application auquel sera associé un dossier virtuel &lt;application-vpath&gt;, le serveur Cassini étant lancé de façon à lier ces deux paramètres.</p>
-<p><a id="toc69180236"></a>
-<a id="toc69180334"></a></p>
+<p><a id="toc69180334"></a>
+<a id="toc69180236"></a></p>
 <h3 id="412-configurer-une-application-web">4.1.2. Configurer une application web</h3>
 <p>Si &lt;application-path&gt; est la racine d&#x27;une application ASP.NET, on peut utiliser le fichier &lt;application-path&gt;\web.config pour configurer celle-ci. Ce fichier est au format XML. Voici un exemple :</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
@@ -987,11 +987,11 @@
 </code></pre></div>
 <p>Soit &lt;application-path&gt; le dossier où se trouvent les trois fichiers de l&#x27;application. Le serveur Cassini est lancé avec les paramètres (&lt;application-path&gt;,/aspnet/config1). Nous demandons l&#x27;URL [<mark style="background-color: #ffe994">http://localhost/aspnet/config1</mark>]. Comme [config1] est un dossier, le serveur web va chercher un fichier [default.aspx] dedans et l&#x27;afficher s&#x27;il le trouve. Ici, il va le trouver :</p>
 <p><img src="images/10000000000001AE000000923FD1205A.png" width="430" height="146" style="width:11.377cm;height:3.863cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001AE000000923FD1205A.png" /></p>
-<p><a id="toc69180237"></a>
-<a id="toc69180335"></a></p>
+<p><a id="toc69180335"></a>
+<a id="toc69180237"></a></p>
 <h3 id="413-application-session-contexte">4.1.3. Application, Session, Contexte</h3>
-<p><a id="toc69180238"></a>
-<a id="toc69180336"></a></p>
+<p><a id="toc69180336"></a>
+<a id="toc69180238"></a></p>
 <h4 id="4131-le-fichier-globalasax">4.1.3.1. Le fichier global.asax</h4>
 <p>Le code du fichier [global.asax] est toujours exécuté avant que la page demandée par la requête courante ne soit chargée. Il doit être situé dans la racine &lt;application-path&gt; de l&#x27;application. S&#x27;il existe, le fichier [global.asax] est utilisé à divers moments par le serveur web :</p>
 <ol>
@@ -1073,8 +1073,8 @@
 </ul>
 
 <p>Si aucun de ces événements ne doit être géré, alors le fichier [global.asax] peut être ignoré. C&#x27;est ce qui a été fait avec les premiers exemples de ce chapitre. </p>
-<p><a id="toc69180239"></a>
-<a id="toc69180337"></a></p>
+<p><a id="toc69180337"></a>
+<a id="toc69180239"></a></p>
 <h4 id="4132-exemple-1">4.1.3.2. Exemple 1</h4>
 <p>Développons une application pour mieux appréhender les trois moments que sont : le démarrage de l&#x27;application, de la session, d&#x27;une demande client. Le fichier [global.asax] sera le suivant :</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>&lt;%@ Application src=&quot;Global.asax.vb&quot; Inherits=&quot;global&quot; %&gt;
@@ -1222,8 +1222,8 @@
   </li>
 </ul>
 
-<p><a id="toc69180240"></a>
-<a id="toc69180338"></a></p>
+<p><a id="toc69180338"></a>
+<a id="toc69180240"></a></p>
 <h4 id="4133-une-vue-densemble">4.1.3.3. Une vue d&#x27;ensemble</h4>
 <p>Avec ce que nous avons appris jusqu&#x27;à maintenant, nous sommes en mesure de faire un premier schéma explicatif du fonctionnement d&#x27;un serveur web et des application web qu&#x27;il sert :</p>
 <p><img src="images/10000000000005C5000003897323D62A.png" width="680" height="417" style="width:17.999cm;height:11.028cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005C5000003897323D62A.png" /></p>
@@ -1269,8 +1269,8 @@
   </li>
 </ul>
 
-<p><a id="toc69180241"></a>
-<a id="toc69180339"></a></p>
+<p><a id="toc69180339"></a>
+<a id="toc69180241"></a></p>
 <h4 id="4134-exemple-2">4.1.3.4. Exemple 2</h4>
 <p>Développons un nouvel exemple mettant en lumière ce qui vient d&#x27;être vu. Nous rassemblons dans le même dossier les fichiers suivants :</p>
 <p>[<strong>global.asax</strong>]</p>
@@ -1361,8 +1361,8 @@
 <p>On peut constater que le jeton de session a changé et qu&#x27;on a donc un nouveau client. Cela est reflété dans le nombre de requêtes du client. Revenons maintenant au 1er navigateur et redemandons encore la même url :</p>
 <p><img src="images/10000000000001FC0000008DC0779ED7.png" width="508" height="141" style="width:13.441cm;height:3.731cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001FC0000008DC0779ED7.png" /></p>
 <p>Le nombre de requêtes faites à l&#x27;application sont bien toutes comptées.</p>
-<p><a id="toc69180242"></a>
-<a id="toc69180340"></a></p>
+<p><a id="toc69180340"></a>
+<a id="toc69180242"></a></p>
 <h4 id="4135-de-la-necessite-de-synchroniser-les-clients-dune-application">4.1.3.5. De la nécessité de synchroniser les clients d&#x27;une application</h4>
 <p>Dans l&#x27;application précédente, le compteur de requêtes faites à l&#x27;application est incrémenté dans la procédure [Form_Load] de la page [main.aspx] de la façon suivante :</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>        &#39; une requête de plus pour l&#39;application
@@ -1452,8 +1452,8 @@
 </ul>
 
 <p>Qu&#x27;en conclure ? Rien de définitif. Peut-être le serveur web ne commence-t-il pas à exécuter une requête d&#x27;un client si celui-ci en a déjà une en cours d&#x27;exécution ? Il n&#x27;y aurait donc jamais simultanéité d&#x27;exécution des requêtes d&#x27;un même client. Elles seraient exécutées les unes après les autres. Ce point est à vérifier. Il peut en effet dépendre du type de client utilisé.</p>
-<p><a id="toc69180243"></a>
-<a id="toc69180341"></a></p>
+<p><a id="toc69180341"></a>
+<a id="toc69180243"></a></p>
 <h4 id="4136-synchronisation-des-clients">4.1.3.6. Synchronisation des clients</h4>
 <p>Le problème mis en évidence dans l&#x27;application précédente est un problème classique (mais pas simple à résoudre) d&#x27;accès exclusif à une ressource. Dans notre problème particulier, il faut faire en sorte que que deux clients A et B ne puissent être en même temps dans la séquence de code :</p>
 <ol>
@@ -1585,8 +1585,8 @@
 <p><img src="images/10000000000002D1000001C5C8FE5699.png" width="680" height="427" style="width:17.992cm;height:11.298cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002D1000001C5C8FE5699.png" /></p>
 <p>Cette fois-ci, le compteur de requêtes de l&#x27;application est correct.</p>
 <p>On retiendra de cette longue démonstration, l&#x27;absolue nécessité de synchroniser les clients d&#x27;une même application web, s&#x27;ils doivent mettre à jour des éléments partagés par tous les clients.</p>
-<p><a id="toc69180244"></a>
-<a id="toc69180342"></a></p>
+<p><a id="toc69180342"></a>
+<a id="toc69180244"></a></p>
 <h4 id="4137-gestion-du-jeton-de-session">4.1.3.7. Gestion du jeton de session</h4>
 <p>Nous avons parlé de nombreuses fois du jeton de session que s&#x27;échangeait le client et le serveur web. Rappelons son principe :</p>
 <ul>
@@ -1944,11 +1944,11 @@
   </li>
 </ul>
 
-<p><a id="toc69180245"></a>
-<a id="toc69180343"></a></p>
+<p><a id="toc69180343"></a>
+<a id="toc69180245"></a></p>
 <h2 id="42-recuperer-les-informations-dune-requete-client">4.2. Récupérer les informations d&#x27;une requête client</h2>
-<p><a id="toc69180246"></a>
-<a id="toc69180344"></a></p>
+<p><a id="toc69180344"></a>
+<a id="toc69180246"></a></p>
 <h3 id="421-le-cycle-requete-reponse-du-client-serveur-web">4.2.1. Le cycle requête-réponse du client-serveur web</h3>
 <p>Rappelons ici le contexte client-serveur d&#x27;une application web :</p>
 <p><img src="images/10000000000005AC000001C9B49A634E.png" width="680" height="214" style="width:17.999cm;height:5.664cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005AC000001C9B49A634E.png" /></p>
@@ -2002,8 +2002,8 @@
   </li>
 </ol>
 
-<p><a id="toc69180247"></a>
-<a id="toc69180345"></a></p>
+<p><a id="toc69180345"></a>
+<a id="toc69180247"></a></p>
 <h3 id="422-recuperer-les-informations-transmises-par-le-client">4.2.2. Récupérer les informations transmises par le client</h3>
 <p>Nous examinons maintenant certaines propriétés et méthodes de l&#x27;objet [Request] qui permet au code de l&#x27;application d&#x27;avoir accès à la requête du client et donc aux informations qu&#x27;il a transmises. L&#x27;objet [Request] est de type [HttpRequest] :</p>
 <p><img src="images/10000000000001540000004975AC4BB4.png" width="340" height="73" style="width:8.996cm;height:1.931cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001540000004975AC4BB4.png" /></p>
@@ -2022,8 +2022,8 @@
 </code></pre></div>
 </div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">rassemble plusieurs collections : QueryString, Form, ServerVariables, Cookies au sein d&#x27;une unique collection.</div></td></tr></table>
 
-<p><a id="toc69180248"></a>
-<a id="toc69180346"></a></p>
+<p><a id="toc69180346"></a>
+<a id="toc69180248"></a></p>
 <h3 id="423-exemple-1">4.2.3. Exemple 1</h3>
 <p>Mettons en oeuvre ces éléments sur un premier exemple. L&#x27;application n&#x27;aura qu&#x27;un élément [main.aspx]. Le code de présentation [main.aspx] sera le suivant :</p>
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-html">
@@ -2197,8 +2197,8 @@
 <a id="__codelineno-36-27" name="__codelineno-36-27" href="#__codelineno-36-27"></a><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></div>
 <p>Le lecteur est invité à relire le code du contrôleur [main.aspx.vb] pour comprendre cette réponse.</p>
-<p><a id="toc69180249"></a>
-<a id="toc69180347"></a></p>
+<p><a id="toc69180347"></a>
+<a id="toc69180249"></a></p>
 <h3 id="424-exemple-2">4.2.4. Exemple 2</h3>
 <p>Il est possible pour le client d&#x27;envoyer plusieurs valeurs pour une même clé. Ainsi qu&#x27;arrive-t-il si dans l&#x27;exemple précédent on demande l&#x27;url [<mark style="background-color: #ffe994">http://localhost/request1/main.aspx?nom=tintin&amp;age=27&amp;nom=milou</mark>] où il y a deux fois la clé [nom] ? Essayons avec un navigateur :</p>
 <p><img src="images/100000000000028D000000A9B8968247.png" width="653" height="169" style="width:17.277cm;height:4.471cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000028D000000A9B8968247.png" /></p>
@@ -2346,8 +2346,8 @@
 <a id="__codelineno-37-26" name="__codelineno-37-26" href="#__codelineno-37-26"></a><span class="p">&lt;/</span><span class="nt">HTML</span><span class="p">&gt;</span>
 </code></pre></div>
 <p>On peut voir que le client reçoit bien du code HTML classique pour les deux listes de la page. On voit apparaître des informations qu&#x27;on n&#x27;a pas mises nous-mêmes telles le champ caché [_VIEWSTATE]. Ces informations ont été générées par les balises &lt;asp:xx runat=&quot;server&gt;. Nous devrons apprendre à maîtriser celles-ci.</p>
-<p><a id="toc69180250"></a>
-<a id="toc69180348"></a></p>
+<p><a id="toc69180348"></a>
+<a id="toc69180250"></a></p>
 <h2 id="43-mise-en-oeuvre-dune-architecture-mvc">4.3. Mise en oeuvre d&#x27;une architecture MVC</h2>
 <h3 id="431-le-concept">4.3.1. Le concept</h3>
 <p>Terminons ce long chapitre par la mise en oeuvre d&#x27;une application construite selon le modèle MVC (Model-View-Controller). Une telle application web architecturée selon ce modèle ressemble à ceci :</p>

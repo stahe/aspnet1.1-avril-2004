@@ -1017,11 +1017,11 @@
 <p><a id="toc68706466"></a></p>
 <h2 id="51-introduction">5.1. Introduction</h2>
 <p>Dans la relation client-serveur du web, le client transmet des informations au serveur sous la forme de chaîne de paramètres [<mark style="background-color: #ffe994">param1=val1&amp;param2=val2&amp;...</mark>]. Nous avons dans nos exemples précédents, construit cette chaîne le plus souvent à la main en demandant des url de la forme [<mark style="background-color: #ffe994">http://localhost/appli? param1=val1&amp;param2=val2&amp;...</mark>]. Dans la réalité, les informations que le transmet le client au serveur proviennent de formulaires que l&#x27;utilisateur a remplis. Nous explorons la construction de ceux-ci dans ce chapitre. Nous introduisons également l&#x27;outil WebMatrix qui va nous permettre de dessiner les interfaces utilisateur. L&#x27;installation de cet outil est présentée dans les annexes.</p>
-<p><a id="toc69183355"></a>
-<a id="toc68706467"></a></p>
+<p><a id="toc68706467"></a>
+<a id="toc69183355"></a></p>
 <h2 id="52-le-langage-html">5.2. Le langage HTML</h2>
-<p><a id="toc69183356"></a>
-<a id="toc68706468"></a></p>
+<p><a id="toc68706468"></a>
+<a id="toc69183356"></a></p>
 <h3 id="521-un-exemple">5.2.1. Un exemple</h3>
 <p>Considérons l&#x27;exemple suivant, créé avec [Web Matrix] qui présente :</p>
 <ul>
@@ -1652,8 +1652,8 @@
 </code></pre></div>
 </div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>type=&quot;hidden&quot;</b> : précise que c&#x27;est un champ caché. Un champ caché fait partie du formulaire mais n&#x27;est pas présenté à l&#x27;utilisateur. Cependant, si celui-ci demandait à son navigateur l&#x27;affichage du code source, il verrait la présence de la balise &lt;input type=&quot;hidden&quot; value=&quot;...&quot;&gt; et donc la valeur du champ caché.</div><div style="margin:0 0 0.5em 0"><b>value=&quot;uneValeur&quot;</b> : valeur du champ caché.</div><div style="margin:0 0 0.5em 0">Quel est l&#x27;intérêt du champ caché ? Cela peut permettre au serveur web de garder des informations au fil des requêtes d&#x27;un client. Considérons une application d&#x27;achats sur le web. Le client achète un premier article <i>art1</i> en quantité <i>q1</i> sur une première page d&#x27;un catalogue puis passe à une nouvelle page du catalogue. Pour se souvenir que le client a acheté <i>q1</i> articles <i>art1</i>, le serveur peut mettre ces deux informations dans un champ caché du formulaire web de la nouvelle page. Sur cette nouvelle page, le client achète <i>q2</i> articles <i>art2</i>. Lorsque les données de ce second formulaire vont être envoyées au serveur (submit), celui-ci va non seulement recevoir l&#x27;information (<i>q2</i>,<i>art2</i>) mais aussi (<i>q1</i>,<i>art1</i>) qui fait partie également partie du formulaire en tant que champ caché non modifiable par l&#x27;utilisateur. Le serveur web va alors mettre dans un nouveau champ caché les informations (<i>q1</i>,<i>art1</i>) et (<i>q2</i>,<i>art2</i>) et envoyer une nouvelle page de catalogue. Et ainsi de suite.</div></td></tr></table>
 
-<p><a id="toc69183357"></a>
-<a id="toc68706482"></a></p>
+<p><a id="toc68706482"></a>
+<a id="toc69183357"></a></p>
 <h2 id="53-envoi-a-un-serveur-web-par-un-navigateur-des-valeurs-dun-formulaire">5.3. Envoi à un serveur web par un navigateur des valeurs d&#x27;un formulaire</h2>
 <p>Nous savons déjà, grâce au chapitre précédent, comment un client transmet des informations au serveur Il le fait soit par :</p>
 <ul>

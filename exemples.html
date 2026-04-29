@@ -1111,15 +1111,15 @@
 
 
 
-<p><a id="toc68590499"></a>
-<a id="toc68683093"></a></p>
+<p><a id="toc68683093"></a>
+<a id="toc68590499"></a></p>
 <h1 id="6-exemples">6. Exemples</h1>
 <p>Nous nous proposons dans ce chapitre d&#x27;illustrer ce qui a été vu précédemment par une série d&#x27;exemples.</p>
-<p><a id="toc68590500"></a>
-<a id="toc68683094"></a></p>
+<p><a id="toc68683094"></a>
+<a id="toc68590500"></a></p>
 <h2 id="61-exemple-1">6.1. Exemple 1</h2>
-<p><a id="toc68590501"></a>
-<a id="toc68683095"></a></p>
+<p><a id="toc68683095"></a>
+<a id="toc68590501"></a></p>
 <h3 id="611-le-probleme">6.1.1. Le problème</h3>
 <p>Cette application doit permettre à un utilisateur de calculer son impôt. On se place dans le cas simplifié d&#x27;un contribuable n&#x27;ayant que son seul salaire à déclarer (chiffres 2004 pour revenus 2003) :</p>
 <ul>
@@ -1144,8 +1144,8 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>    0                0.4809    9505.54
 </code></pre></div>
 <p>ce qui donne l&#x27;impôt I=0.4809*R - 9505.54*nbParts.</p>
-<p><a id="toc68590502"></a>
-<a id="toc68683096"></a></p>
+<p><a id="toc68683096"></a>
+<a id="toc68590502"></a></p>
 <h3 id="612-la-structure-mvc-de-lapplication">6.1.2. La structure MVC de l&#x27;application</h3>
 <p>La structure MVC de l&#x27;application sera la suivante :</p>
 <p><img src="images/10000000000005AB00000258B0036703.png" width="680" height="281" style="width:17.999cm;height:7.444cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005AB00000258B0036703.png" /></p>
@@ -1160,8 +1160,8 @@
 </ul>
 
 <p>Le contrôleur [main.aspx] ne connaît rien au calcul d&#x27;impots. Il est simplement en charge de gérer le dialogue client-serveur et de faire exécuter les actions demandées par le client. Pour l&#x27;action [calcul], il s&#x27;appuiera sur la classe métier [impot].</p>
-<p><a id="toc68590503"></a>
-<a id="toc68683097"></a></p>
+<p><a id="toc68683097"></a>
+<a id="toc68590503"></a></p>
 <h3 id="613-la-classe-metier">6.1.3. La classe métier</h3>
 <p>La classe <strong>impot</strong> sera définie comme suit :</p>
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -1212,8 +1212,8 @@
 </code></pre></div>
 
 <p>Un objet <strong>impôt</strong> en fournissant à son constructeur une source de données de type [<strong>impotsData</strong>]. Cette classe a une méthode publique [<strong>getData</strong>] qui permet d&#x27;obtenir les trois tableaux de données nécessaires au calcul de l&#x27;impôt et qui ont été présentés précédemment. Cette méthode peut gérer une exception si les donnnées n&#x27;on pu être acquises ou si elles s&#x27;avèrent incorrectes. Une fois l&#x27;objet [impot] créé, on peut appeler de façon répétée sa méthode <strong>calculer</strong> qui calcule l&#x27;impôt du contribuable à partir de son statut marital (marié ou non), son nombre d&#x27;enfants et son salaire annuel.</p>
-<p><a id="toc68590504"></a>
-<a id="toc68683098"></a></p>
+<p><a id="toc68683098"></a>
+<a id="toc68590504"></a></p>
 <h3 id="614-la-classe-dacces-aux-donnees">6.1.4. La classe d&#x27;accès aux données</h3>
 <p>La classe [impotsData] est la classe qui permet d&#x27;accéder aux données. C&#x27;est une classe abstraite. On doit créer une classe dérivée pour chaque nouvelle source de données possible (tableaux, fichiers plats, bases de données, console, ...). Sa définition est la suivante :</p>
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
@@ -1340,8 +1340,8 @@
 </ul>
 
 <p>La méthode [getData] qui permettra aux classes externes d&#x27;obtenir les tableaux (limites,coeffr,coeffn) se contente de vérifier la validité des trois tableaux à l&#x27;aide de la méthode [checkData] de la classe de base. Elle lance une exception si les données sont invalides.</p>
-<p><a id="toc68590505"></a>
-<a id="toc68683099"></a></p>
+<p><a id="toc68683099"></a>
+<a id="toc68590505"></a></p>
 <h3 id="615-tests-des-classes-metier-et-des-classes-dacces-aux-donnees">6.1.5. Tests des classes métier et des classes d&#x27;accès aux données</h3>
 <p>Il est important de n&#x27;inclure dans une application web que des classes métier et d&#x27;accès aux données certifiées correctes. Ainsi la phase de débogage de l&#x27;application web pourra se concentrer sur la partie contrôleur et vues. Un programme de test pourait être le suivant :</p>
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-vbscript">
@@ -1488,8 +1488,8 @@
 <a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>impôt=6872 euro(s)
 <a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>Paramètres du calcul de l&#39;impôt au format marié nbEnfants salaire ou rien pour arrêter :
 </code></pre></div>
-<p><a id="toc68590506"></a>
-<a id="toc68683100"></a></p>
+<p><a id="toc68683100"></a>
+<a id="toc68590506"></a></p>
 <h3 id="616-les-vues-de-lapplication-web">6.1.6. Les vues de l&#x27;application web</h3>
 <p>L&#x27;application aura deux vues : [formulaire.aspx] et [erreurs.aspx]. Illustrons le fonctionnement de l&#x27;application par des copies d&#x27;écran. La vue [formulaire.aspx] est présentée lorsque l&#x27;url [main.aspx] est demandée la première fois :</p>
 <p><img src="images/1000000000000100000000FEAFB8A86F.png" width="256" height="254" style="width:6.773cm;height:6.72cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000100000000FEAFB8A86F.png" /></p>
@@ -1503,8 +1503,8 @@
 <p><img src="images/1000000000000100000000912AC3FAD4.png" width="256" height="145" style="width:6.773cm;height:3.836cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000100000000912AC3FAD4.png" /></p>
 <p>Il peut utiliser le lien [Retour au formulaire] ci-dessus pour retrouver la vue [formulaire.aspx] telle qu&#x27;il l&#x27;a validée avant l&#x27;erreur :</p>
 <p><img src="images/10000000000001010000008BD04534B1.png" width="257" height="139" style="width:6.8cm;height:3.678cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001010000008BD04534B1.png" /></p>
-<p><a id="toc68590507"></a>
-<a id="toc68683101"></a></p>
+<p><a id="toc68683101"></a>
+<a id="toc68590507"></a></p>
 <h3 id="617-la-vue-formulaireaspx">6.1.7. La vue [formulaire.aspx]</h3>
 <p>La page [formulaire.aspx] sera la suivante :</p>
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-html">
@@ -1628,8 +1628,8 @@
   </li>
 </ul>
 
-<p><a id="toc68590508"></a>
-<a id="toc68683102"></a></p>
+<p><a id="toc68683102"></a>
+<a id="toc68590508"></a></p>
 <h3 id="618-la-vue-erreursaspx">6.1.8. La vue [erreurs.aspx]</h3>
 <p>La vue [erreurs.aspx] est celle qui affiche les erreurs éventuelles qui peuvent se produire lors de la vie de l&#x27;application. Son code de présentation est le suivant :</p>
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-html">
@@ -1704,8 +1704,8 @@
 </div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">texte du lien</div></td></tr></table>
 
 <p>Maintenant que nous savons ce que voit l&#x27;utilisateur de l&#x27;application, nous pouvons passer à l&#x27;écriture du contrôleur de celle-ci.</p>
-<p><a id="toc68590509"></a>
-<a id="toc68683103"></a></p>
+<p><a id="toc68683103"></a>
+<a id="toc68590509"></a></p>
 <h3 id="619-les-controleurs-globalasax-mainaspx">6.1.9. Les contrôleurs [global.asax, main.aspx]</h3>
 <p>Rappelons le schéma MVC de notre application :</p>
 <p><img src="images/10000000000005BE0000027993D6CC27.png" width="680" height="293" style="width:17.999cm;height:7.751cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005BE0000027993D6CC27.png" /></p>
@@ -1993,8 +1993,8 @@
   </li>
 </ul>
 
-<p><a id="toc68590510"></a>
-<a id="toc68683104"></a></p>
+<p><a id="toc68683104"></a>
+<a id="toc68590510"></a></p>
 <h3 id="6110-test-de-lapplication-web">6.1.10. Test de l&#x27;application web</h3>
 <p>L&#x27;ensemble des fichiers précédents sont placés dans un dossier &lt;application-path&gt;. </p>
 <p><img src="images/10000000000000870000008A85ED472C.png" width="135" height="138" style="width:3.572cm;height:3.651cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000000870000008A85ED472C.png" /></p>
